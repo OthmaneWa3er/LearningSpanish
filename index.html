@@ -151,19 +151,20 @@
     }
 
     /* 🖼️ Stickers side by side */
+/* 🖼️ Stickers side by side with same height and aligned bottom */
 .sticker-row {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end; /* makes feet align perfectly */
   gap: 15px;
   flex-wrap: wrap; /* allows stacking on small screens */
-  margin-top: 10px;
+  margin-top: 30px;
 }
 
 .sticker {
-  width: 45%;
-  max-width: 180px;
-  height: auto;
+  width: auto;
+  max-height: 250px; /* same height for both */
+  object-fit: contain; /* preserves proportions without cropping */
   border-radius: 16px;
   transition: transform 0.3s ease;
 }
@@ -172,37 +173,13 @@
   transform: scale(1.05);
 }
 
+/* Mobile tweak: make them smaller on phones */
+@media (max-width: 600px) {
+  .sticker {
+    max-height: 180px;
+  }
+}
 
-    
-    /* 📱 Mobile tweaks */
-    @media (max-width: 600px) {
-      body {
-        padding: 10px;
-      }
-
-      .container {
-        padding: 18px;
-        box-shadow: none;
-        border-radius: 14px;
-      }
-
-      h1 {
-        font-size: 1.3rem;
-      }
-
-      .show-btn, .check-btn, #nextBtn, .audio-btn {
-        font-size: 0.9rem;
-        padding: 10px 14px;
-      }
-
-      .sentence-card {
-        padding: 12px 14px;
-      }
-
-      .input-area input {
-        font-size: 0.9rem;
-      }
-    }
   </style>
 </head>
 <body>
