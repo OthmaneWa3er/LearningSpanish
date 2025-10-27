@@ -9,53 +9,68 @@
       font-family: 'Poppins', sans-serif;
       background: #f5eee6;
       margin: 0;
-      padding: 40px 0;
+      padding: 20px 10px;
       color: #333;
       display: flex;
       justify-content: center;
     }
 
     .container {
-      width: 90%;
-      max-width: 650px;
+      width: 100%;
+      max-width: 600px;
       background: white;
-      padding: 30px;
+      padding: 20px;
       border-radius: 18px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
       text-align: center;
-      position: relative;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .instruction {
+      font-size: 0.95rem;
+      color: #666;
+      margin-bottom: 18px;
     }
 
     .sentence-card {
       background: #fff7ef;
       border-left: 6px solid #ffb36b;
-      padding: 15px 18px;
+      padding: 14px 16px;
       margin-bottom: 18px;
       border-radius: 12px;
-      transition: 0.3s;
+      transition: transform 0.3s;
     }
 
     .sentence-card:hover {
-      transform: translateY(-3px);
+      transform: translateY(-2px);
     }
 
     .translation {
       display: none;
-      margin-top: 8px;
+      margin-top: 10px;
       color: #444;
-      font-size: 15px;
+      font-size: 1rem;
+    }
+
+    .show-btn, .check-btn, .audio-btn, #nextBtn {
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 0.95rem;
     }
 
     .show-btn {
       margin-top: 10px;
       background: #ffb36b;
-      border: none;
-      color: white;
-      padding: 7px 14px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      font-size: 14px;
+      padding: 10px 16px;
+      width: 100%;
     }
 
     .show-btn:hover {
@@ -64,29 +79,24 @@
 
     .input-area {
       display: block;
-      margin-top: 10px;
+      margin-top: 12px;
     }
 
     .input-area input {
-      padding: 6px 10px;
+      padding: 10px;
       border: 2px solid #ccc;
-      border-radius: 8px;
-      width: 80%;
-      max-width: 400px;
-      font-size: 14px;
+      border-radius: 10px;
+      width: 100%;
+      font-size: 1rem;
       outline: none;
+      box-sizing: border-box;
     }
 
     .check-btn {
       background: #7db4ff;
-      border: none;
-      color: white;
-      padding: 6px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-      margin-left: 5px;
-      transition: 0.3s;
-      font-size: 14px;
+      padding: 10px 16px;
+      margin-top: 8px;
+      width: 100%;
     }
 
     .check-btn:hover {
@@ -96,26 +106,18 @@
     .feedback {
       margin-top: 6px;
       font-weight: 600;
+      font-size: 0.95rem;
     }
 
-    .feedback.success {
-      color: #0a9d48;
-    }
-
-    .feedback.error {
-      color: #d32f2f;
-    }
+    .feedback.success { color: #0a9d48; }
+    .feedback.error { color: #d32f2f; }
 
     #nextBtn {
       margin-top: 25px;
       background: #ff8d72;
-      border: none;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-size: 16px;
-      transition: 0.3s;
+      padding: 14px 24px;
+      width: 100%;
+      font-size: 1rem;
     }
 
     #nextBtn:hover {
@@ -123,15 +125,10 @@
     }
 
     .audio-btn {
-      margin-top: 8px;
+      margin-top: 10px;
       background: #7db4ff;
-      border: none;
-      color: white;
-      padding: 6px 14px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: 0.3s;
-      font-size: 14px;
+      padding: 10px 16px;
+      width: 100%;
       display: none;
     }
 
@@ -140,17 +137,47 @@
     }
 
     .sticker {
-      width: 220px;
-      max-width: 60%;
+      width: 70%;
+      max-width: 300px;
       height: auto;
       display: block;
-      margin: 40px auto 0 auto;
+      margin: 30px auto 0;
       border-radius: 16px;
       transition: transform 0.3s ease;
     }
 
     .sticker:hover {
       transform: scale(1.05);
+    }
+
+    /* 📱 Mobile tweaks */
+    @media (max-width: 600px) {
+      body {
+        padding: 10px;
+      }
+
+      .container {
+        padding: 18px;
+        box-shadow: none;
+        border-radius: 14px;
+      }
+
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      .show-btn, .check-btn, #nextBtn, .audio-btn {
+        font-size: 0.9rem;
+        padding: 10px 14px;
+      }
+
+      .sentence-card {
+        padding: 12px 14px;
+      }
+
+      .input-area input {
+        font-size: 0.9rem;
+      }
     }
   </style>
 </head>
@@ -160,8 +187,7 @@
     <p class="instruction">Werkii bach tchoufi l jawab b espagnol 👇</p>
 
     <div id="sentences"></div>
-
-    <button id="nextBtn">➕ WERKII HNA :> </button>
+    <button id="nextBtn">➕ WERKII HNA :></button>
 
     <img 
       src="https://raw.githubusercontent.com/OthmaneWa3er/LearningSpanish/main/sticker.jpg" 
@@ -172,7 +198,6 @@
 
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-
       const sentences = [
         ["Fe9t lyoum M3atlaa.", "Me desperté tarde hoy."],
         ["Man mora ma fe9t khdit wa7ed douche.", "Después de levantarme, tomé una ducha."],
@@ -183,44 +208,39 @@
         ["khdemt bzzf lyoum, walakin t3alemt 7aja jdidaa.", "Trabajé mucho hoy, pero aprendí algo nuevo."],
         ["Pendant la pause, dwit m3a Raihana.", "Durante la pausa, hablé con Raihana."],
         ["Man mora l khedma, mchit l supermarché.", "Después del trabajo, fui al supermercado."],
-        ["Chrit lkhobz, l7lib w des fruits.", "Compré pan, leche y frutas."], 
-        ["Fach dkhelt l dar, tayebt l 3cha.", "Cuando llegué a casa, cociné la cena."], 
-        ["Fati 3aytat 3liya, w dwina wa7ed chwiya.", "Fati me llamó y hablamos un rato."], 
-        ["9bel man n3es, tfarejt f wa7ed série f Netflix.", "Antes de dormir, vi una serie en Netflix."], 
+        ["Chrit lkhobz, l7lib w des fruits.", "Compré pan, leche y frutas."],
+        ["Fach dkhelt l dar, tayebt l 3cha.", "Cuando llegué a casa, cociné la cena."],
+        ["Fati 3aytat 3liya, w dwina wa7ed chwiya.", "Fati me llamó y hablamos un rato."],
+        ["9bel man n3es, tfarejt f wa7ed série f Netflix.", "Antes de dormir, vi una serie en Netflix."],
         ["Lyoum kan lberd bzzf, alors b9it f dar.", "Hoy hace mucho frío, así que me quedo en casa."],
         ["ba3d l marat kankhroj ntmacha f 3chiya.", "A veces salgo a caminar por la tarde."],
         ["ki 3jebni ntsanet l musique fach kan koun kan9ra.", "Me gusta escuchar música mientras estudio."],
         ["dima kan7awel n pratiquer l'espagnol kola nhar.", "Siempre intento practicar español todos los días."],
         ["lbare7 b lil 9rit sa3a w ness.", "Anoche estudié una hora y media."],
-        ["Ensuite, ktebt quelques phrases f l ktab ta3i.", "Luego, escribí unas frases en mi cuaderno."], 
+        ["Ensuite, ktebt quelques phrases f l ktab ta3i.", "Luego, escribí unas frases en mi cuaderno."],
         ["makanch sahel wlkin fhemt f lakher.", "No fue fácil, pero lo entendí al final."],
-        ["Le week-end li 9bel, j’ai rendu visite à mes amis.", "El fin de semana pasado visité a mis amigos."], 
+        ["Le week-end li 9bel, j’ai rendu visite à mes amis.", "El fin de semana pasado visité a mis amigos."],
         ["Nchetna bzzf, wakha kant chta katsob.", "Nos divertimos mucho, aunque llovía."],
-        ["Had sba7, 7essit brassi wa7ed chwiya 3eyana.", "Esta mañana me sentí un poco cansado."], 
+        ["Had sba7, 7essit brassi wa7ed chwiya 3eyana.", "Esta mañana me sentí un poco cansado."],
         ["Cependant, mchit la salle quand même.", "Sin embargo, fui al gimnasio de todos modos."],
-        ["Maintenant je suis détendu et prêt bach ndir nini.", "Ahora estoy relajado y listo para dormir."] 
+        ["Maintenant je suis détendu et prêt bach ndir nini.", "Ahora estoy relajado y listo para dormir."]
       ];
 
       let index = 0;
       const container = document.getElementById("sentences");
       const nextBtn = document.getElementById("nextBtn");
 
-      function speakSpanish(text) {
+      const speakSpanish = text => {
         const utter = new SpeechSynthesisUtterance(text);
         utter.lang = "es-ES";
         utter.rate = 1;
         speechSynthesis.speak(utter);
-      }
+      };
 
-      function normalizeText(str) {
-        return str
-          .toLowerCase()
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .trim();
-      }
+      const normalizeText = str =>
+        str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
 
-      function showNextSentence() {
+      const showNextSentence = () => {
         if (index >= sentences.length) {
           nextBtn.disabled = true;
           nextBtn.innerText = "🎉 Toutes les phrases sont affichées !";
@@ -228,14 +248,13 @@
         }
 
         const [darija, es] = sentences[index];
-
         const card = document.createElement("div");
         card.classList.add("sentence-card");
 
         card.innerHTML = `
           <p><strong>${darija}</strong></p>
           <div class="input-area">
-            <input type="text" placeholder="Dictée lyammak hihi...">
+            <input type="text" placeholder="Dictée Mariamoox ❤️...">
             <button class="check-btn">Vérifier</button>
             <p class="feedback"></p>
           </div>
@@ -252,23 +271,18 @@
         const checkBtn = inputArea.querySelector(".check-btn");
         const feedback = inputArea.querySelector(".feedback");
 
-        // Initial state
         translation.style.display = "none";
         audioBtn.style.display = "none";
-        inputArea.style.display = "block"; // show by default for dictée
 
-        // Toggle show/hide
         showBtn.addEventListener("click", () => {
           const isHidden = translation.style.display === "none";
           if (isHidden) {
-            // Show translation → hide dictée
             translation.style.display = "block";
             audioBtn.style.display = "inline-block";
             inputArea.style.display = "none";
             feedback.textContent = "";
             showBtn.textContent = "Masquer la traduction";
           } else {
-            // Hide translation → show dictée
             translation.style.display = "none";
             audioBtn.style.display = "none";
             inputArea.style.display = "block";
@@ -276,7 +290,6 @@
           }
         });
 
-        // Check dictée
         checkBtn.addEventListener("click", () => {
           const userAnswer = normalizeText(input.value);
           const correctAnswer = normalizeText(es);
@@ -290,10 +303,9 @@
         });
 
         audioBtn.addEventListener("click", () => speakSpanish(es));
-
         container.appendChild(card);
         index++;
-      }
+      };
 
       nextBtn.addEventListener("click", showNextSentence);
       showNextSentence();
@@ -301,4 +313,3 @@
   </script>
 </body>
 </html>
-
