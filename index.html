@@ -153,15 +153,15 @@
           return;
         }
 
-        const [darijan, es] = sentences[index];
+        const [darija, es] = sentences[index];
 
         const card = document.createElement("div");
         card.classList.add("sentence-card");
 
         card.innerHTML = `
-          <p><strong>${es}</strong></p>
+          <p><strong>${darija}</strong></p>
           <button class="show-btn">Afficher la traduction</button>
-          <p class="translation">${darija}</p>
+          <p class="translation">${es}</p>
           <button class="audio-btn">🔊 Écouter</button>
         `;
 
@@ -192,6 +192,3 @@
   </script>
 </body>
 </html>
-
-
-
