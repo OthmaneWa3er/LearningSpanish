@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mariamoox Spanish </title>
+  <title>Mariamoox Spanish Practice</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -23,6 +23,23 @@
       border-radius: 18px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       text-align: center;
+      position: relative;
+    }
+
+    /* Sticker Image */
+    .sticker {
+      width: 180px;              /* Adjust for smaller look */
+      max-width: 40%;
+      height: auto;
+      display: block;
+      margin: 0 auto 20px auto;  /* Center + add bottom margin */
+      border-radius: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+    }
+
+    .sticker:hover {
+      transform: scale(1.05);
     }
 
     .sentence-card {
@@ -96,6 +113,13 @@
 </head>
 <body>
   <div class="container">
+    <!-- ✅ Sticker Image -->
+    <img 
+      src="https://raw.githubusercontent.com/OthmaneWa3er/LearningSpanish/main/sticker.png" 
+      alt="Mariamoox Sticker" 
+      class="sticker"
+    >
+
     <h1>Mariamoox Spanish Practice</h1>
     <p class="instruction">Werkii bach tchoufi l jawab b espagnol 👇</p>
 
@@ -192,4 +216,3 @@
   </script>
 </body>
 </html>
-
