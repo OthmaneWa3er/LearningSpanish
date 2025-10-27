@@ -63,7 +63,7 @@
     }
 
     .input-area {
-      display: none;
+      display: block;
       margin-top: 10px;
     }
 
@@ -183,7 +183,7 @@
         ["khdemt bzzf lyoum, walakin t3alemt 7aja jdidaa.", "Trabajé mucho hoy, pero aprendí algo nuevo."],
         ["Pendant la pause, dwit m3a Raihana.", "Durante la pausa, hablé con Raihana."],
         ["Man mora l khedma, mchit l supermarché.", "Después del trabajo, fui al supermercado."],
-        ["Chrit lkhobz, l7lib w des fruits.", "Compré pan, leche y frutas."], 
+        ["Chrit lkhobz, l7lib w des fruits.", "Compré pan, leche y frutas."]
       ];
 
       let index = 0;
@@ -219,13 +219,13 @@
 
         card.innerHTML = `
           <p><strong>${darija}</strong></p>
-          <button class="show-btn">Afficher la traduction</button>
-          <p class="translation">${es}</p>
           <div class="input-area">
             <input type="text" placeholder="Dictée lyammak hihi...">
             <button class="check-btn">Vérifier</button>
             <p class="feedback"></p>
           </div>
+          <button class="show-btn">Afficher la traduction</button>
+          <p class="translation">${es}</p>
           <button class="audio-btn">🔊 Écouter</button>
         `;
 
@@ -237,22 +237,31 @@
         const checkBtn = inputArea.querySelector(".check-btn");
         const feedback = inputArea.querySelector(".feedback");
 
+        // Initial state
+        translation.style.display = "none";
+        audioBtn.style.display = "none";
+        inputArea.style.display = "block"; // show by default for dictée
+
+        // Toggle show/hide
         showBtn.addEventListener("click", () => {
-          const isHidden = translation.style.display === "none" || translation.style.display === "";
+          const isHidden = translation.style.display === "none";
           if (isHidden) {
+            // Show translation → hide dictée
             translation.style.display = "block";
             audioBtn.style.display = "inline-block";
-            inputArea.style.display = "block";
-            showBtn.textContent = "Masquer la traduction";
-          } else {
-            translation.style.display = "none";
-            audioBtn.style.display = "none";
             inputArea.style.display = "none";
             feedback.textContent = "";
+            showBtn.textContent = "Masquer la traduction";
+          } else {
+            // Hide translation → show dictée
+            translation.style.display = "none";
+            audioBtn.style.display = "none";
+            inputArea.style.display = "block";
             showBtn.textContent = "Afficher la traduction";
           }
         });
 
+        // Check dictée
         checkBtn.addEventListener("click", () => {
           const userAnswer = normalizeText(input.value);
           const correctAnswer = normalizeText(es);
@@ -277,4 +286,3 @@
   </script>
 </body>
 </html>
-
