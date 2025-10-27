@@ -1,5 +1,5 @@
 const sentences = [
-  [
+  
   ["Me desperté tarde hoy.", "Fe9t lyoum M3atlaa."],
   ["Después de levantarme, tomé una ducha.", "Man mora ma fe9t khdit wa7ed douche."],
   ["Desayuné con Mariam antes de ir al trabajo.", "Ftert m3a Mariamox 9bel man mchi lkhedma."],
@@ -87,4 +87,5 @@ nextBtn.addEventListener("click", showNextSentence);
 
 // Load first automatically
 showNextSentence();
+
 
