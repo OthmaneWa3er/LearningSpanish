@@ -88,6 +88,7 @@
       cursor: pointer;
       transition: 0.3s;
       font-size: 14px;
+      display: none;
     }
 
     .audio-btn:hover {
@@ -95,20 +96,19 @@
     }
 
     /* ✅ Sticker at the bottom (no border or shadow) */
-.sticker {
-  width: 220px;
-  max-width: 60%;
-  height: auto;
-  display: block;
-  margin: 40px auto 0 auto; /* spacing above */
-  border-radius: 16px;
-  transition: transform 0.3s ease;
-}
+    .sticker {
+      width: 220px;
+      max-width: 60%;
+      height: auto;
+      display: block;
+      margin: 40px auto 0 auto;
+      border-radius: 16px;
+      transition: transform 0.3s ease;
+    }
 
-.sticker:hover {
-  transform: scale(1.05);
-}
-
+    .sticker:hover {
+      transform: scale(1.05);
+    }
   </style>
 </head>
 <body>
@@ -120,7 +120,7 @@
 
     <button id="nextBtn">➕ WERKII HNA :> </button>
 
-    <!-- ✅ Sticker moved BELOW everything -->
+    <!-- ✅ Sticker BELOW everything -->
     <img 
       src="https://raw.githubusercontent.com/OthmaneWa3er/LearningSpanish/main/sticker.jpg" 
       alt="Mariamoox Sticker" 
@@ -193,13 +193,16 @@
         const translation = card.querySelector(".translation");
         const audioBtn = card.querySelector(".audio-btn");
 
-        translation.style.display = "none";
-        audioBtn.style.display = "none";
-
         showBtn.addEventListener("click", () => {
-          translation.style.display = "block";
-          audioBtn.style.display = "inline-block";
-          showBtn.style.display = "none";
+          if (translation.style.display === "none") {
+            translation.style.display = "block";
+            audioBtn.style.display = "inline-block";
+            showBtn.textContent = "Masquer la traduction";
+          } else {
+            translation.style.display = "none";
+            audioBtn.style.display = "none";
+            showBtn.textContent = "Afficher la traduction";
+          }
         });
 
         audioBtn.addEventListener("click", () => {
@@ -216,5 +219,3 @@
   </script>
 </body>
 </html>
-
-
