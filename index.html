@@ -26,24 +26,6 @@
       position: relative;
     }
 
-    /* 👇 Image with background styled as framed sticker */
-    .sticker {
-      width: 220px;
-      max-width: 60%;
-      height: auto;
-      display: block;
-      margin: 0 auto 25px auto;
-      border-radius: 16px;
-      border: 5px solid #fff;
-      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .sticker:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-    }
-
     .sentence-card {
       background: #fff7ef;
       border-left: 6px solid #ffb36b;
@@ -111,23 +93,41 @@
     .audio-btn:hover {
       background: #4f95ff;
     }
+
+    /* ✅ Sticker at the bottom */
+    .sticker {
+      width: 220px;
+      max-width: 60%;
+      height: auto;
+      display: block;
+      margin: 40px auto 0 auto; /* spacing above */
+      border-radius: 16px;
+      border: 5px solid #fff;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .sticker:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- ✅ Sticker photo with frame style -->
-    <img 
-      src="https://raw.githubusercontent.com/OthmaneWa3er/LearningSpanish/main/sticker.png" 
-      alt="Mariamoox Sticker" 
-      class="sticker"
-    >
-
     <h1>Mariamoox Spanish Practice</h1>
     <p class="instruction">Werkii bach tchoufi l jawab b espagnol 👇</p>
 
     <div id="sentences"></div>
 
     <button id="nextBtn">➕ WERKII HNA :> </button>
+
+    <!-- ✅ Sticker moved BELOW everything -->
+    <img 
+      src="https://raw.githubusercontent.com/OthmaneWa3er/LearningSpanish/main/sticker.png" 
+      alt="Mariamoox Sticker" 
+      class="sticker"
+    >
   </div>
 
   <script>
