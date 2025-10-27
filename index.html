@@ -62,6 +62,50 @@
       background: #ff9740;
     }
 
+    .input-area {
+      display: none;
+      margin-top: 10px;
+    }
+
+    .input-area input {
+      padding: 6px 10px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      width: 80%;
+      max-width: 400px;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .check-btn {
+      background: #7db4ff;
+      border: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-left: 5px;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+
+    .check-btn:hover {
+      background: #4f95ff;
+    }
+
+    .feedback {
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    .feedback.success {
+      color: #0a9d48;
+    }
+
+    .feedback.error {
+      color: #d32f2f;
+    }
+
     #nextBtn {
       margin-top: 25px;
       background: #ff8d72;
@@ -95,7 +139,6 @@
       background: #4f95ff;
     }
 
-    /* ✅ Sticker at the bottom (no border or shadow) */
     .sticker {
       width: 220px;
       max-width: 60%;
@@ -120,7 +163,6 @@
 
     <button id="nextBtn">➕ WERKII HNA :> </button>
 
-    <!-- ✅ Sticker BELOW everything -->
     <img 
       src="https://raw.githubusercontent.com/OthmaneWa3er/LearningSpanish/main/sticker.jpg" 
       alt="Mariamoox Sticker" 
@@ -142,21 +184,6 @@
         ["Pendant la pause, dwit m3a Raihana.", "Durante la pausa, hablé con Raihana."],
         ["Man mora l khedma, mchit l supermarché.", "Después del trabajo, fui al supermercado."],
         ["Chrit lkhobz, l7lib w des fruits.", "Compré pan, leche y frutas."], 
-        ["Fach dkhelt l dar, tayebt l 3cha.", "Cuando llegué a casa, cociné la cena."], 
-        ["Fati 3aytat 3liya, w dwina wa7ed chwiya.", "Fati me llamó y hablamos un rato."], 
-        ["9bel man n3es, tfarejt f wa7ed série f Netflix.", "Antes de dormir, vi una serie en Netflix."], 
-        ["Lyoum kan lberd bzzf, alors b9it f dar.", "Hoy hace mucho frío, así que me quedo en casa."],
-        ["ba3d l marat kankhroj ntmacha f 3chiya.", "A veces salgo a caminar por la tarde."],
-        ["ki 3jebni ntsanet l musique fach kan koun kan9ra.", "Me gusta escuchar música mientras estudio."],
-        ["dima kan7awel n pratiquer l'espagnol kola nhar.", "Siempre intento practicar español todos los días."],
-        ["lbare7 b lil 9rit sa3a w ness.", "Anoche estudié una hora y media."],
-        ["Ensuite, ktebt quelques phrases f l ktab ta3i.", "Luego, escribí unas frases en mi cuaderno."], 
-        ["makanch sahel wlkin fhemt f lakher.", "No fue fácil, pero lo entendí al final."],
-        ["Le week-end li 9bel, j’ai rendu visite à mes amis.", "El fin de semana pasado visité a mis amigos."], 
-        ["Nchetna bzzf, wakha kant chta katsob.", "Nos divertimos mucho, aunque llovía."],
-        ["Had sba7, 7essit brassi wa7ed chwiya 3eyana.", "Esta mañana me sentí un poco cansado."], 
-        ["Cependant, mchit la salle quand même.", "Sin embargo, fui al gimnasio de todos modos."],
-        ["Maintenant je suis détendu et prêt bach ndir nini.", "Ahora estoy relajado y listo para dormir."] 
       ];
 
       let index = 0;
@@ -168,6 +195,14 @@
         utter.lang = "es-ES";
         utter.rate = 1;
         speechSynthesis.speak(utter);
+      }
+
+      function normalizeText(str) {
+        return str
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .trim();
       }
 
       function showNextSentence() {
@@ -186,28 +221,51 @@
           <p><strong>${darija}</strong></p>
           <button class="show-btn">Afficher la traduction</button>
           <p class="translation">${es}</p>
+          <div class="input-area">
+            <input type="text" placeholder="Écris la phrase en espagnol ici...">
+            <button class="check-btn">Vérifier</button>
+            <p class="feedback"></p>
+          </div>
           <button class="audio-btn">🔊 Écouter</button>
         `;
 
         const showBtn = card.querySelector(".show-btn");
         const translation = card.querySelector(".translation");
         const audioBtn = card.querySelector(".audio-btn");
+        const inputArea = card.querySelector(".input-area");
+        const input = inputArea.querySelector("input");
+        const checkBtn = inputArea.querySelector(".check-btn");
+        const feedback = inputArea.querySelector(".feedback");
 
         showBtn.addEventListener("click", () => {
-          if (translation.style.display === "none") {
+          const isHidden = translation.style.display === "none" || translation.style.display === "";
+          if (isHidden) {
             translation.style.display = "block";
             audioBtn.style.display = "inline-block";
+            inputArea.style.display = "block";
             showBtn.textContent = "Masquer la traduction";
           } else {
             translation.style.display = "none";
             audioBtn.style.display = "none";
+            inputArea.style.display = "none";
+            feedback.textContent = "";
             showBtn.textContent = "Afficher la traduction";
           }
         });
 
-        audioBtn.addEventListener("click", () => {
-          speakSpanish(es);
+        checkBtn.addEventListener("click", () => {
+          const userAnswer = normalizeText(input.value);
+          const correctAnswer = normalizeText(es);
+          if (userAnswer === correctAnswer) {
+            feedback.textContent = "✅ weleeee weleeee !";
+            feedback.className = "feedback success";
+          } else {
+            feedback.textContent = "❌ 7awli merra khra 😛 !";
+            feedback.className = "feedback error";
+          }
         });
+
+        audioBtn.addEventListener("click", () => speakSpanish(es));
 
         container.appendChild(card);
         index++;
