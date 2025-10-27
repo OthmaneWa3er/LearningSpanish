@@ -26,20 +26,22 @@
       position: relative;
     }
 
-    /* Sticker Image */
+    /* 👇 Image with background styled as framed sticker */
     .sticker {
-      width: 180px;              /* Adjust for smaller look */
-      max-width: 40%;
+      width: 220px;
+      max-width: 60%;
       height: auto;
       display: block;
-      margin: 0 auto 20px auto;  /* Center + add bottom margin */
-      border-radius: 20px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-      transition: transform 0.3s ease;
+      margin: 0 auto 25px auto;
+      border-radius: 16px;
+      border: 5px solid #fff;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     .sticker:hover {
       transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
     }
 
     .sentence-card {
@@ -113,7 +115,7 @@
 </head>
 <body>
   <div class="container">
-    <!-- ✅ Sticker Image -->
+    <!-- ✅ Sticker photo with frame style -->
     <img 
       src="https://raw.githubusercontent.com/OthmaneWa3er/LearningSpanish/main/sticker.png" 
       alt="Mariamoox Sticker" 
