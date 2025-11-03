@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Week 2 - Le futur & les mots de liaison 🇪🇸</title>
+  <title>Week 2 - Futur & Mots de liaison 🇪🇸</title>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
-      background: #f5eee6;
+      background: linear-gradient(135deg, #e0f7fa, #fff9c4);
       margin: 0;
       padding: 20px 10px;
       color: #333;
@@ -17,73 +17,143 @@
 
     .container {
       width: 100%;
-      max-width: 700px;
+      max-width: 650px;
       background: white;
       padding: 25px;
-      border-radius: 18px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 150, 136, 0.2);
       text-align: center;
+      border-top: 8px solid #26a69a;
     }
 
     h1 {
       font-size: 1.8rem;
       margin-bottom: 8px;
-      color: #ff7553;
+      color: #00796b;
     }
 
     p.subtitle {
       color: #555;
       margin-bottom: 20px;
+      font-size: 1rem;
     }
 
-    ul {
-      text-align: left;
-      line-height: 1.8;
-      font-size: 1.05rem;
+    .sentence-card {
+      background: #f0fff4;
+      border-left: 6px solid #26a69a;
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      border-radius: 12px;
+      transition: transform 0.3s;
     }
 
-    li {
-      background: #fff7ef;
-      border-left: 6px solid #ffb36b;
-      margin-bottom: 10px;
-      padding: 10px 15px;
-      border-radius: 10px;
-      transition: transform 0.2s;
-    }
-
-    li:hover {
+    .sentence-card:hover {
       transform: translateY(-2px);
+    }
+
+    .translation {
+      display: none;
+      margin-top: 10px;
+      color: #444;
+      font-size: 1rem;
+    }
+
+    .show-btn, .check-btn, .audio-btn, #nextBtn {
+      border: none;
+      border-radius: 10px;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 0.95rem;
+    }
+
+    .show-btn {
+      margin-top: 10px;
+      background: #26a69a;
+      padding: 10px 16px;
+      width: 100%;
+    }
+
+    .show-btn:hover {
+      background: #009688;
+    }
+
+    .input-area {
+      display: block;
+      margin-top: 12px;
+    }
+
+    .input-area input {
+      padding: 10px;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      width: 100%;
+      font-size: 1rem;
+      outline: none;
+      box-sizing: border-box;
+    }
+
+    .check-btn {
+      background: #81c784;
+      padding: 10px 16px;
+      margin-top: 8px;
+      width: 100%;
+    }
+
+    .check-btn:hover {
+      background: #66bb6a;
+    }
+
+    .feedback {
+      margin-top: 6px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .feedback.success { color: #2e7d32; }
+    .feedback.error { color: #c62828; }
+
+    #nextBtn {
+      margin-top: 25px;
+      background: #26a69a;
+      padding: 14px 24px;
+      width: 100%;
+      font-size: 1rem;
+    }
+
+    #nextBtn:hover {
+      background: #00796b;
     }
 
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 30px;
+      margin-top: 40px;
       font-size: 1rem;
     }
 
     th, td {
-      border: 1px solid #ddd;
+      border: 1px solid #ccc;
       padding: 10px;
       text-align: left;
     }
 
     th {
-      background: #ffe2c9;
-      color: #333;
+      background: #b2dfdb;
+      color: #004d40;
     }
 
     td:first-child {
       font-weight: 600;
-      color: #d15a00;
+      color: #00796b;
     }
 
     #backBtn {
       display: inline-block;
       margin-top: 25px;
       padding: 12px 20px;
-      background: #ff8d72;
-      color: white;
+      background: #80cbc4;
+      color: #004d40;
       border: none;
       border-radius: 12px;
       font-size: 1rem;
@@ -92,33 +162,18 @@
     }
 
     #backBtn:hover {
-      background: #ff7553;
+      background: #4db6ac;
+      color: white;
     }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>Week 2 - Le futur & les mots de liaison 🇪🇸</h1>
-    <p class="subtitle">Apprends à construire tes phrases en français avec les mots de liaison essentiels 💪</p>
+    <p class="subtitle">Apprends à construire tes phrases au futur avec fluidité 💬</p>
 
-    <h2>📝 Phrases en français</h2>
-    <ul>
-      <li>Demain, j’étudierai avec Mariamox.</li>
-      <li>Je participerai à un examen important.</li>
-      <li>Après avoir terminé mes devoirs, je regarderai un film.</li>
-      <li>Je marcherai si le temps est agréable.</li>
-      <li>J’écrirai dans mon journal chaque jour.</li>
-      <li>Si j’ai du temps, j’étudierai l’espagnol.</li>
-      <li>Je demanderai au professeur quelques nouvelles expressions.</li>
-      <li>Après cette semaine, je pourrai construire des phrases plus facilement.</li>
-      <li>J’essaierai d’utiliser des mots de liaison dans mes phrases.</li>
-      <li>J’aurai besoin de beaucoup de pratique pour parler couramment.</li>
-      <li>Si j’apprends avec motivation, je continuerai à progresser.</li>
-      <li>Pendant mon temps libre, j’étudierai et j’écrirai de nouvelles phrases.</li>
-      <li>La semaine prochaine, je ferai un petit test pour vérifier mes progrès.</li>
-      <li>Je te demanderai si tu as appris de nouveaux mots.</li>
-      <li>Si j’apprends bien, je travaillerai un jour en espagnol !</li>
-    </ul>
+    <div id="sentences"></div>
+    <button id="nextBtn">➡️ Phrase suivante</button>
 
     <h2>📖 Mots et expressions de liaison</h2>
     <table>
@@ -145,7 +200,106 @@
       <tr><td>sobre todo</td><td>surtout / avant tout</td></tr>
     </table>
 
-    <button id="backBtn" onclick="location.href='index.html'">⬅️ Revenir au menu principal</button>
+    <button id="backBtn" onclick="location.href='index.html'">⬅️ Retour au menu principal</button>
   </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const sentences = [
+        ["1/15 - Ghad n9ra ma Mariamox ghdda", "Mañana estudiaré con Mariamox"],
+        ["2/15 - Ghad nkoun mcharik f wa7ed l'examen", "Participaré en un examen importante"],
+        ["3/15 - Ba3d ma nsali, ghad nchoof wa7ed film", "Después de terminar, veré una película"],
+        ["4/15 - Ghadi ntmacha ila kan jaw mzyan", "Caminaré si hace buen tiempo"],
+        ["5/15 - Ghad nkteb journali kola nhar", "Escribiré mi diario cada día"],
+        ["6/15 - W ila 3ndi wa9t, ghad nqra espagnol", "Y si tengo tiempo, estudiaré español"],
+        ["7/15 - Ghad nsol lprof 3la chi expressions jdida", "Preguntaré al profesor sobre nuevas expresiones"],
+        ["8/15 - B3d had semaine, ghad n9der nder phrases akthar", "Después de esta semana podré hacer más frases"],
+        ["9/15 - Ghad n7awel nst3mel les mots de liaison", "Intentaré usar conectores"],
+        ["10/15 - Ghad n7taj pratique bzzaf bach nkoun fluent", "Necesitaré mucha práctica para ser fluido"],
+        ["11/15 - Ila t3lmt b zid lmotivation, ghadi nwasel", "Si aprendo con motivación, continuaré"],
+        ["12/15 - Wa9t lferagh ghad nqra w njrb phrases jdida", "En mi tiempo libre estudiaré y probaré nuevas frases"],
+        ["13/15 - L semaine jaya ghadi nder test 3la hadchi", "La próxima semana haré una prueba sobre esto"],
+        ["14/15 - Ghad nsoulek ila 3raft chi mot jdida", "Te preguntaré si aprendiste nuevas palabras"],
+        ["15/15 - W ila t3lmt mzyan, ghadi nkhdem b l’espagnol", "Y si aprendo bien, trabajaré en español"]
+      ];
+
+      let index = 0;
+      const container = document.getElementById("sentences");
+      const nextBtn = document.getElementById("nextBtn");
+
+      const speakSpanish = text => {
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.lang = "es-ES";
+        utter.rate = 1;
+        speechSynthesis.speak(utter);
+      };
+
+      const normalizeText = str =>
+        str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+
+      const showNextSentence = () => {
+        if (index >= sentences.length) {
+          nextBtn.disabled = true;
+          nextBtn.innerText = "🎉 Toutes les phrases sont terminées !";
+          return;
+        }
+
+        const [darija, es] = sentences[index];
+        const card = document.createElement("div");
+        card.classList.add("sentence-card");
+
+        card.innerHTML = `
+          <p><strong>${darija}</strong></p>
+          <div class="input-area">
+            <input type="text" placeholder="Écris la phrase en espagnol...">
+            <button class="check-btn">Vérifier</button>
+            <p class="feedback"></p>
+          </div>
+          <button class="show-btn">Afficher la traduction</button>
+          <p class="translation">${es}</p>
+          <button class="audio-btn">🔊 Écouter</button>
+        `;
+
+        const showBtn = card.querySelector(".show-btn");
+        const translation = card.querySelector(".translation");
+        const audioBtn = card.querySelector(".audio-btn");
+        const inputArea = card.querySelector(".input-area");
+        const input = inputArea.querySelector("input");
+        const checkBtn = inputArea.querySelector(".check-btn");
+        const feedback = inputArea.querySelector(".feedback");
+
+        translation.style.display = "none";
+        audioBtn.style.display = "none";
+
+        showBtn.addEventListener("click", () => {
+          const isHidden = translation.style.display === "none";
+          translation.style.display = isHidden ? "block" : "none";
+          audioBtn.style.display = isHidden ? "inline-block" : "none";
+          inputArea.style.display = isHidden ? "none" : "block";
+          feedback.textContent = "";
+          showBtn.textContent = isHidden ? "Masquer la traduction" : "Afficher la traduction";
+        });
+
+        checkBtn.addEventListener("click", () => {
+          const userAnswer = normalizeText(input.value);
+          const correctAnswer = normalizeText(es);
+          if (userAnswer === correctAnswer) {
+            feedback.textContent = "✅ Excellent !";
+            feedback.className = "feedback success";
+          } else {
+            feedback.textContent = "❌ Presque ! Essaie encore 😅";
+            feedback.className = "feedback error";
+          }
+        });
+
+        audioBtn.addEventListener("click", () => speakSpanish(es));
+        container.appendChild(card);
+        index++;
+      };
+
+      nextBtn.addEventListener("click", showNextSentence);
+      showNextSentence();
+    });
+  </script>
 </body>
 </html>
